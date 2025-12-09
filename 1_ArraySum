@@ -1,0 +1,65 @@
+import java.util.Arrays;  // Added import statement
+
+public class ArraySum {
+    public static void main(String[] args) {
+        double[] x = {
+            0.660171828,   
+            1.409473129,  
+            0.629238868,  
+            1.183617481,  
+            0.347479192,  
+            1.119297324,  
+            1.175079790,  
+            0.433175358,  
+            1.462033740,  
+            0.724323727,  
+            1.106973814,  
+            1.092935765,  
+            1.087694282,  
+            0.757702170,  
+            1.635704599,  
+            0.331272669,  
+            0.835687196,  
+            0.291921919,  
+            0.919505222,  
+        };
+
+        double sum = 0;
+        int i = 0;
+
+        while (i < x.length) {
+            sum += x[i];
+            i++;
+        }
+
+        System.out.println("sum = " + sum);
+        
+        // Sort the array in ascending order
+        Arrays.sort(x);
+        
+        // Declare arrays to store top 5 and bottom 5 values
+        double[] top5 = new double[5];
+        double[] bottom5 = new double[5];
+
+        // Store top 5 (largest values)
+        for (int j = 0; j < 5; j++) {
+            top5[j] = x[x.length - 1 - j];
+        }
+        
+        // Store bottom 5 (smallest values)
+        for (int j = 0; j < 5; j++) {
+            bottom5[j] = x[j];
+        }
+        
+        // Optional: Print results to verify
+        System.out.println("Top 5 values:");
+        for (int j = 0; j < 5; j++) {
+            System.out.println(top5[j]);
+        }
+        
+        System.out.println("Bottom 5 values:");
+        for (int j = 0; j < 5; j++) {
+            System.out.println(bottom5[j]);
+        }
+    }
+}
