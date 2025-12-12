@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class SongTokenizer {
+    public static void main(String[] args) {
+        String song =
+            "You better watch out, \n" +
+            "You better not cry, \n" +
+            "You better not pout, \n" +
+            "I'm telling you why,\n" +
+            "Santa Claus is coming to town!,\n\n" +
+            "He's making a list, \n" +
+            "And checking it twice, \n" +
+            "Gonna find out, \n" +
+            "Who's naughty or nice,\n" +
+            "Santa Claus is coming to town!";
+        
+        List<String> tokens = getTokens(song);
+        
+        // Print the tokens to see the result
+        System.out.println("Tokens found: " + tokens.size());
+        for (String token : tokens) {
+            System.out.println("'" + token + "'");
+        }
+    }
+    
+    public static List<String> getTokens(String str) {
+        List<String> tokens = new ArrayList<>();
+        // Fixed: Use only comma as delimiter, not space
+        StringTokenizer tokenizer = new StringTokenizer(str, ",");
+        while (tokenizer.hasMoreTokens()) {
+            tokens.add(tokenizer.nextToken().trim());
+        }
+        return tokens;
+    }
+}
